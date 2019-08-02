@@ -15,12 +15,15 @@ function init() {
     $('.js-btn-yellow').on('click', createYellowBox);
     $('.js-btn-green').on('click', createGreenBox);
 
-    $('.js-btn-deleteblue').on('click', deleteBlueBox);
-    $('.js-btn-deletered').on('click', deleteRedBox);
-    $('.js-btn-deleteyellow').on('click', deleteYellowBox);
-    $('.js-btn-deletegreen').on('click', deleteGreenBox);
+    // $('.js-btn-deleteblue').on('click', deleteBlueBox);
+    // $('.js-btn-deletered').on('click', deleteRedBox);
+    // $('.js-btn-deleteyellow').on('click', deleteYellowBox);
+    // $('.js-btn-deletegreen').on('click', deleteGreenBox);
 
-
+    $('.js-container').on('click', '.blue.box', deleteBlueBox);
+    $('.js-container').on('click', '.red.box', deleteRedBox);
+    $('.js-container').on('click', '.yellow.box', deleteYellowBox);
+    $('.js-container').on('click', '.green.box', deleteGreenBox);
 
     $('.js-num-blue').text(numOfBlue + ' Blue Count ');
     $('.js-num-red').text(numOfRed + ' Red Count ');
@@ -60,17 +63,26 @@ function deleteBlueBox() {
     numOfBlue--;
     $('.js-num-blue').text(numOfBlue + ' Blue Count ');
 
-    $('js-container').removeClass();
+    $(this).remove();
 }
 
 function deleteRedBox() {
     numOfRed--;
+    $('.js-num-red').text(numOfRed + ' Red Count ');
+
+    $(this).remove();
 }
 
 function deleteYellowBox() {
     numOfYellow--;
+    $('.js-num-yellow').text(numOfYellow + ' Yellow Count ');
+
+    $(this).remove();
 }
 
 function deleteGreenBox() {
     numOfGreen--;
+    $('.js-num-green').text(numOfGreen + ' Green Count ');
+
+    $(this).remove();
 }
