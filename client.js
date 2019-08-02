@@ -9,21 +9,68 @@ function init() {
         .append(`<div class="box blue"></div>`)
         .append(`<div class="box yellow"></div>`)
         .append(`<div class="box red"></div>`);
-        
-    
-    $('.js-container').on('click','.js-btn-blue',newBox);
-    $('.js-container').on('click','.js-btn-red', newBox);
-    $('.js-container').on('click','.js-btn-green', newBox);
-    $('.js-container').on('click','.js-btn-yellow', newBox );
-    $('.js-blue-num').text(numOfBlue + ' Blue Count ');
-    $('.js-red-num').text(numOfRed + ' Red Count ');
-    $('.js-yellow-num').text(numOfYellow + ' Yellow Count ');
-    $('.js-green-num').text(numOfGreen + ' Green Count ');
+
+    $('.js-btn-blue').on('click', createBlueBox);
+    $('.js-btn-red').on('click', createRedBox);
+    $('.js-btn-yellow').on('click', createYellowBox);
+    $('.js-btn-green').on('click', createGreenBox);
+
+    $('.js-btn-deleteblue').on('click', deleteBlueBox);
+    $('.js-btn-deletered').on('click', deleteRedBox);
+    $('.js-btn-deleteyellow').on('click', deleteYellowBox);
+    $('.js-btn-deletegreen').on('click', deleteGreenBox);
+
+
+
+    $('.js-num-blue').text(numOfBlue + ' Blue Count ');
+    $('.js-num-red').text(numOfRed + ' Red Count ');
+    $('.js-num-yellow').text(numOfYellow + ' Yellow Count ');
+    $('.js-num-green').text(numOfGreen + ' Green Count ');
 
 }
 
-function newBox(){
+function createBlueBox() {
+    numOfBlue++;
+    $('.js-num-blue').text(numOfBlue + ' Blue Count ');
+    $('.js-container').append(`<div class="box blue"></div>`);
+}
+
+function createRedBox(){
+    numOfRed++;
+    $('.js-num-red').text(numOfRed + ' Red Count ');
+    $('.js-container').append(`<div class="box red"></div>`);
+
+}
+
+function createYellowBox(){
+    numOfYellow++;
+    $('.js-num-yellow').text(numOfYellow + ' Yellow Count ');
+    $('.js-container').append(`<div class="box yellow"></div>`);
+
+}
+
+function createGreenBox() {
+    numOfGreen++;
+    $('.js-num-green').text(numOfGreen + ' Green Count ');
     $('.js-container').append(`<div class="box green"></div>`);
 
 }
 
+function deleteBlueBox() {
+    numOfBlue--;
+    $('.js-num-blue').text(numOfBlue + ' Blue Count ');
+
+    $('js-container').removeClass();
+}
+
+function deleteRedBox() {
+    numOfRed--;
+}
+
+function deleteYellowBox() {
+    numOfYellow--;
+}
+
+function deleteGreenBox() {
+    numOfGreen--;
+}
