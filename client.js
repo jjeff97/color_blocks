@@ -1,7 +1,7 @@
- let numOfBlue = 0
- let numOfRed = 0
- let numOfYellow = 0
- let numOfGreen = 0
+let numOfBlue = 1
+let numOfRed = 1
+let numOfYellow = 1
+let numOfGreen = 1
 $(document).ready(init);
 
 function init() {
@@ -15,10 +15,6 @@ function init() {
     $('.js-btn-yellow').on('click', createYellowBox);
     $('.js-btn-green').on('click', createGreenBox);
 
-    // $('.js-btn-deleteblue').on('click', deleteBlueBox);
-    // $('.js-btn-deletered').on('click', deleteRedBox);
-    // $('.js-btn-deleteyellow').on('click', deleteYellowBox);
-    // $('.js-btn-deletegreen').on('click', deleteGreenBox);
 
     $('.js-container').on('click', '.blue.box', deleteBlueBox);
     $('.js-container').on('click', '.red.box', deleteRedBox);
@@ -38,14 +34,14 @@ function createBlueBox() {
     $('.js-container').append(`<div class="box blue"></div>`);
 }
 
-function createRedBox(){
+function createRedBox() {
     numOfRed++;
     $('.js-num-red').text(numOfRed + ' Red Count ');
     $('.js-container').append(`<div class="box red"></div>`);
 
 }
 
-function createYellowBox(){
+function createYellowBox() {
     numOfYellow++;
     $('.js-num-yellow').text(numOfYellow + ' Yellow Count ');
     $('.js-container').append(`<div class="box yellow"></div>`);
@@ -61,28 +57,31 @@ function createGreenBox() {
 
 function deleteBlueBox() {
     numOfBlue--;
-    $('.js-num-blue').text(numOfBlue + ' Blue Count ');
+    $('js-num-blue').empty();
+    $('.js-num-blue').text(`${numOfBlue} Blue Count`);
 
     $(this).remove();
 }
 
 function deleteRedBox() {
     numOfRed--;
-    $('.js-num-red').text(numOfRed + ' Red Count ');
-
+    $('js-num-red').empty();
+    $('.js-num-red').text(`${numOfRed} Red Count`);
     $(this).remove();
 }
 
 function deleteYellowBox() {
     numOfYellow--;
-    $('.js-num-yellow').text(numOfYellow + ' Yellow Count ');
+    $('js-num-yellow').empty();
+    $('.js-num-yellow').text(` ${numOfYellow} Yellow Count`);
 
     $(this).remove();
 }
 
 function deleteGreenBox() {
     numOfGreen--;
-    $('.js-num-green').text(numOfGreen + ' Green Count ');
+    $('js-num-green').empty();
+    $('.js-num-green').text(` ${numOfGreen} Green Count `);
 
     $(this).remove();
 }
